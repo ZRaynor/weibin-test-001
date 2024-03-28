@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  This will associate Amazon Web Services resources with WAF WebACLs
+  then WAF logs will be collected via Firehose to centralized S3 bucket in security account.
+
+Parameters:
+  AssociateResourceARN:
+    Type: String
+    Description: Input the resource ARN you want to associate ALBs with this WebACL.
+  WafWebACLARN:
+    Type: String
+    Description: Input the WAF WebACL ARN you want to associate with Firehose.
+
+Resources:
+  WafAssociation:
+    Type: AWS::WAFv2::WebACLAssociation
+    Properties:
+      ResourceArn: !Ref AssociateResourceARN
+      WebACLArn: !Ref WafWebACLARN
