@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block title %}Delta Analytics - Alibaba Cloud Deployment Platform{% endblock %}
+
+{% block page_title %}Delta (δ) - Log Analysis & Analytics{% endblock %}
+
+{% block content %}
+<div class="page-content">
+    <div class="page-header">
+        <h2>δ - Delta Log Analysis & Analytics</h2>
+        <p class="page-description">Analyze logs, track usage patterns, and generate insights</p>
+    </div>
+
+    <div class="content-sections">
+        <div class="section">
+            <h3>Log Filters</h3>
+            <div class="filter-grid">
+                <div class="filter-item">
+                    <label>Log Level</label>
+                    <select disabled>
+                        <option>All</option>
+                        <option>DEBUG</option>
+                        <option>INFO</option>
+                        <option>WARNING</option>
+                        <option>ERROR</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label>Service</label>
+                    <select disabled>
+                        <option>All Services</option>
+                        <option>API Gateway</option>
+                        <option>Auth Service</option>
+                        <option>Data Pipeline</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label>Time Range</label>
+                    <select disabled>
+                        <option>Last Hour</option>
+                        <option>Last 24 Hours</option>
+                        <option>Last 7 Days</option>
+                        <option>Last 30 Days</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Log Entries</h3>
+            <table class="log-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Level</th>
+                        <th>Service</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-07-09 14:52:30</td>
+                        <td><span class="log-level info">INFO</span></td>
+                        <td>API Gateway</td>
+                        <td>Request processed successfully from 192.168.1.100</td>
+                    </tr>
+                    <tr>
+                        <td>2024-07-09 14:51:45</td>
+                        <td><span class="log-level debug">DEBUG</span></td>
+                        <td>Auth Service</td>
+                        <td>Token validation completed for user session</td>
+                    </tr>
+                    <tr>
+                        <td>2024-07-09 14:50:12</td>
+                        <td><span class="log-level info">INFO</span></td>
+                        <td>Data Pipeline</td>
+                        <td>Data sync completed - 15234 records processed</td>
+                    </tr>
+                    <tr>
+                        <td>2024-07-09 14:49:00</td>
+                        <td><span class="log-level info">INFO</span></td>
+                        <td>API Gateway</td>
+                        <td>Load balancer health check passed</td>
+                    </tr>
+                    <tr>
+                        <td>2024-07-09 14:48:15</td>
+                        <td><span class="log-level warning">WARNING</span></td>
+                        <td>Data Pipeline</td>
+                        <td>High memory usage detected - 78% capacity</td>
+                    </tr>
+                    <tr>
+                        <td>2024-07-09 14:47:00</td>
+                        <td><span class="log-level info">INFO</span></td>
+                        <td>Notification Service</td>
+                        <td>Email notification sent to 145 recipients</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="analytics-grid">
+            <div class="section">
+                <h3>Usage Statistics</h3>
+                <div class="stats-list">
+                    <div class="stat-row">
+                        <span class="stat-label">Total API Calls</span>
+                        <span class="stat-value">45,231</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Avg Response Time</span>
+                        <span class="stat-value">145ms</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Error Rate</span>
+                        <span class="stat-value">0.12%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Total Users Active</span>
+                        <span class="stat-value">1,247</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Top Errors</h3>
+                <div class="error-list">
+                    <div class="error-item">
+                        <div class="error-count">145</div>
+                        <div class="error-desc">Connection timeout errors</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-count">78</div>
+                        <div class="error-desc">Database query failures</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-count">34</div>
+                        <div class="error-desc">Authentication failures</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.page-content {
+    padding: 20px;
+}
+
+.page-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.page-header h2 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.page-description {
+    margin: 0;
+    color: #999;
+}
+
+.content-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.section {
+    background: white;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.section h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-item label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+.filter-item select {
+    padding: 8px 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    background: #f9f9f9;
+    color: #333;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.log-table th {
+    background: #f5f5f5;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.log-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #555;
+}
+
+.log-level {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.log-level.debug {
+    background: #e7f3ff;
+    color: #0066cc;
+}
+
+.log-level.info {
+    background: #d4edda;
+    color: #155724;
+}
+
+.log-level.warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.log-level.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 14px;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.error-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.error-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.error-count {
+    background: #ff6b6b;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.error-desc {
+    color: #555;
+    font-size: 14px;
+}
+</style>
+{% endblock %}
