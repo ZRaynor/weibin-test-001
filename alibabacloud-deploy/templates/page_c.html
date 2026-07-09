@@ -1,0 +1,314 @@
+{% extends "base.html" %}
+
+{% block title %}Gamma Monitoring - Alibaba Cloud Deployment Platform{% endblock %}
+
+{% block page_title %}Gamma (γ) - Monitoring Dashboard{% endblock %}
+
+{% block content %}
+<div class="page-content">
+    <div class="page-header">
+        <h2>γ - Gamma Monitoring Dashboard</h2>
+        <p class="page-description">Monitor system performance, health metrics, and real-time alerts</p>
+    </div>
+
+    <div class="content-sections">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h4>CPU Usage</h4>
+                <div class="metric-value">45%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%"></div>
+                </div>
+                <p class="metric-status">Normal</p>
+            </div>
+
+            <div class="metric-card">
+                <h4>Memory Usage</h4>
+                <div class="metric-value">62%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 62%"></div>
+                </div>
+                <p class="metric-status">Moderate</p>
+            </div>
+
+            <div class="metric-card">
+                <h4>Disk I/O</h4>
+                <div class="metric-value">28%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 28%"></div>
+                </div>
+                <p class="metric-status">Good</p>
+            </div>
+
+            <div class="metric-card">
+                <h4>Network Latency</h4>
+                <div class="metric-value">12ms</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%"></div>
+                </div>
+                <p class="metric-status">Excellent</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>System Health</h3>
+            <div class="health-items">
+                <div class="health-item">
+                    <div class="health-icon healthy">✓</div>
+                    <div class="health-info">
+                        <p class="health-title">API Server</p>
+                        <p class="health-time">Last checked: 2 minutes ago</p>
+                    </div>
+                    <span class="badge badge-healthy">Healthy</span>
+                </div>
+
+                <div class="health-item">
+                    <div class="health-icon healthy">✓</div>
+                    <div class="health-info">
+                        <p class="health-title">Database Cluster</p>
+                        <p class="health-time">Last checked: 1 minute ago</p>
+                    </div>
+                    <span class="badge badge-healthy">Healthy</span>
+                </div>
+
+                <div class="health-item">
+                    <div class="health-icon healthy">✓</div>
+                    <div class="health-info">
+                        <p class="health-title">Load Balancer</p>
+                        <p class="health-time">Last checked: 30 seconds ago</p>
+                    </div>
+                    <span class="badge badge-healthy">Healthy</span>
+                </div>
+
+                <div class="health-item">
+                    <div class="health-icon healthy">✓</div>
+                    <div class="health-info">
+                        <p class="health-title">Storage Service</p>
+                        <p class="health-time">Last checked: 45 seconds ago</p>
+                    </div>
+                    <span class="badge badge-healthy">Healthy</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Alerts</h3>
+            <div class="alerts-list">
+                <div class="alert-item alert-info">
+                    <span class="alert-icon">ℹ</span>
+                    <div class="alert-content">
+                        <p class="alert-title">Regular Backup Completed</p>
+                        <p class="alert-time">2024-07-09 14:00:00</p>
+                    </div>
+                </div>
+
+                <div class="alert-item alert-info">
+                    <span class="alert-icon">ℹ</span>
+                    <div class="alert-content">
+                        <p class="alert-title">System Maintenance Window Scheduled</p>
+                        <p class="alert-time">2024-07-10 02:00:00 UTC</p>
+                    </div>
+                </div>
+
+                <div class="alert-item alert-info">
+                    <span class="alert-icon">ℹ</span>
+                    <div class="alert-content">
+                        <p class="alert-title">Resource Allocation Optimized</p>
+                        <p class="alert-time">2024-07-09 13:30:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.page-content {
+    padding: 20px;
+}
+
+.page-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.page-header h2 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.page-description {
+    margin: 0;
+    color: #999;
+}
+
+.content-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.metric-card {
+    background: white;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.metric-card h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.metric-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+}
+
+.metric-status {
+    margin: 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.section {
+    background: white;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.section h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.health-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.health-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 6px;
+}
+
+.health-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.health-icon.healthy {
+    background: #d4edda;
+    color: #155724;
+}
+
+.health-info {
+    flex: 1;
+}
+
+.health-title {
+    margin: 0;
+    font-weight: 500;
+    color: #333;
+}
+
+.health-time {
+    margin: 4px 0 0 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-healthy {
+    background: #d4edda;
+    color: #155724;
+}
+
+.alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alert-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    border-left: 4px solid #d0d0d0;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.alert-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.alert-info {
+    border-left-color: #17a2b8;
+}
+
+.alert-info .alert-icon {
+    color: #17a2b8;
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-title {
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+}
+
+.alert-time {
+    margin: 4px 0 0 0;
+    font-size: 12px;
+    color: #999;
+}
+</style>
+{% endblock %}
