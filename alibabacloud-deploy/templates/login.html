@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Alibaba Cloud Deployment Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>Alibaba Cloud</h1>
+                <p>Deployment Platform</p>
+            </div>
+
+            <div class="login-content">
+                <p class="login-subtitle">Secure Cloud Management Console</p>
+                
+                <div class="login-info">
+                    <p>Sign in with your Azure Active Directory account to access the deployment platform.</p>
+                </div>
+
+                <a href="{{ auth_url }}" class="btn-login-azure">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="7" height="7" fill="#0078D4"/>
+                        <rect x="11" y="2" width="7" height="7" fill="#50E6FF"/>
+                        <rect x="2" y="11" width="7" height="7" fill="#FFB900"/>
+                        <rect x="11" y="11" width="7" height="7" fill="#107C10"/>
+                    </svg>
+                    Sign In with Azure AD
+                </a>
+
+                <div class="login-footer">
+                    <p>This is a secure portal for authorized users only.</p>
+                    <p class="footer-note">Session will expire after 1 hour of inactivity.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-background">
+            <div class="bg-shape shape-1"></div>
+            <div class="bg-shape shape-2"></div>
+            <div class="bg-shape shape-3"></div>
+        </div>
+    </div>
+</body>
+</html>
