@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Alibaba Cloud Deployment Platform{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="layout">
+            <!-- Left Sidebar Navigation -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h1 class="logo">Alibaba Cloud</h1>
+                    <p class="subtitle">Deployment Platform</p>
+                </div>
+                
+                <nav class="nav-menu">
+                    <ul>
+                        <li>
+                            <a href="{{ url_for('page_a') }}" class="nav-link {% if request.endpoint == 'page_a' %}active{% endif %}">
+                                <span class="nav-icon">α</span>
+                                <span class="nav-label">A - Alpha</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('page_b') }}" class="nav-link {% if request.endpoint == 'page_b' %}active{% endif %}">
+                                <span class="nav-icon">β</span>
+                                <span class="nav-label">B - Beta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('page_c') }}" class="nav-link {% if request.endpoint == 'page_c' %}active{% endif %}">
+                                <span class="nav-icon">γ</span>
+                                <span class="nav-label">C - Gamma</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('page_d') }}" class="nav-link {% if request.endpoint == 'page_d' %}active{% endif %}">
+                                <span class="nav-icon">δ</span>
+                                <span class="nav-label">D - Delta</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="user-info">
+                        <p class="user-name" id="userName">{{ user.name if user else 'User' }}</p>
+                        <p class="user-email" id="userEmail">{{ user.email if user else '' }}</p>
+                    </div>
+                    <div class="session-info">
+                        <p class="session-time"><span id="sessionTime">60:00</span></p>
+                        <p class="session-label">Session Remaining</p>
+                    </div>
+                    <form method="POST" action="{{ url_for('logout') }}">
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="content">
+                <header class="content-header">
+                    <h2>{% block page_title %}Dashboard{% endblock %}</h2>
+                    <div class="header-actions">
+                        <span class="connection-status">● Connected</span>
+                    </div>
+                </header>
+
+                <div class="content-body">
+                    {% block content %}{% endblock %}
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/session.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
