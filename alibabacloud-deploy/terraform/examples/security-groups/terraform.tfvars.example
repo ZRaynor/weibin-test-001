@@ -1,0 +1,8 @@
+# Example terraform.tfvars for security-groups example
+vpc_id = "vpc-0d4c8693eee4a7f82"
+aws_region = "cn-north-1"
+
+# Optional override names
+lb_sg_name  = "lly-nw-com-imeeting-alb-q-sg-01"
+app_sg_name = "lly-nw-com-imeeting-lambda-q-sg-01"
+rds_sg_name = "lly-nw-com-imeeting-rds-q-sg-01"
